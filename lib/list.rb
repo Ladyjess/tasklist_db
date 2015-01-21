@@ -12,7 +12,7 @@ class List
     returned_lists.each() do |list|
       name = list.fetch("name")
       id = list.fetch("id").to_i()
-      lists.push(List.new({:name => name, :id => id}))
+      lists.push(List.new({:name => name, :id => id,}))
     end
     lists
   end
@@ -44,7 +44,8 @@ class List
     tasks.each() do |task|
       description = task.fetch("description")
       list_id = task.fetch("list_id").to_i()
-      list_tasks.push(Task.new({:description => description, :list_id => list_id}))
+      due_date = task.fetch("due_date")
+      list_tasks.push(Task.new({:description => description, :list_id => list_id, :due_date => due_date}))
     end
     list_tasks
   end
